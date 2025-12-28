@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respiratory Abnormality Detection - First Evaluation Presentation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 100%;
+            margin: 0;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        h1 {
+            color: #1a5276;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 24px;
+            page-break-before: always;
+        }
+        
+        h1:first-of-type {
+            page-break-before: avoid;
+        }
+        
+        h2 {
+            color: #2874a6;
+            margin-top: 25px;
+            font-size: 18px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        h3 {
+            color: #1a5276;
+            font-size: 16px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+            font-size: 11px;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #2980b9;
+        }
+        
+        td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+        
+        blockquote {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-style: italic;
+            font-weight: 500;
+        }
+        
+        blockquote p {
+            margin: 0;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 12px;
+            color: #c7254e;
+        }
+        
+        pre {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 11px;
+            line-height: 1.4;
+            page-break-inside: avoid;
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        strong {
+            color: #1a5276;
+        }
+        
+        em {
+            color: #555;
+        }
+        
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+            margin: 30px 0;
+        }
+        
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        /* Emoji/Checkmark styling */
+        .check {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        /* Page header */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a5276 0%, #3498db 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: white;
+            border: none;
+            margin: 0;
+            padding: 0;
+            page-break-before: avoid;
+        }
+        
+        .header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        /* Print specific */
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+            
+            h1 {
+                page-break-before: always;
+                font-size: 18pt;
+            }
+            
+            h1:first-of-type {
+                page-break-before: avoid;
+            }
+            
+            table {
+                font-size: 9pt;
+            }
+            
+            pre {
+                font-size: 8pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>RESPIRATORY ABNORMALITY DETECTION</h1>
+        <p>First Evaluation Presentation | December 2025</p>
+    </div>
+    
+    <h1>PROJECT PRESENTATION CONTENT (10-12 Slides)</h1>
+<h2>First Evaluation: Data Acquisition → Feature Selection</h2>
+<hr />
+<h1>SLIDE 1: TITLE SLIDE</h1>
+<p><strong>RESPIRATORY ABNORMALITY DETECTION USING PHYSIOLOGICAL SIGNAL PROCESSING</strong></p>
+<p><em>A Machine Learning Approach for ICU Patient Monitoring</em></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Department</strong></td>
+<td>[Your Department Name]</td>
+</tr>
+<tr>
+<td><strong>Course</strong></td>
+<td>[Course Name/Code]</td>
+</tr>
+<tr>
+<td><strong>Instructor</strong></td>
+<td>[Professor Name]</td>
+</tr>
+<tr>
+<td><strong>Presented by</strong></td>
+<td>[Your Name]</td>
+</tr>
+<tr>
+<td><strong>Roll No</strong></td>
+<td>[Your Roll Number]</td>
+</tr>
+<tr>
+<td><strong>Date</strong></td>
+<td>December 2025</td>
+</tr>
+<tr>
+<td><strong>Phase</strong></td>
+<td>First Evaluation (Data Acquisition to Feature Selection)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>SLIDE 2: PROBLEM STATEMENT &amp; OBJECTIVES</h1>
+<h2>The Problem</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invasive respiratory monitoring</td>
+<td>Patient discomfort, infection risk</td>
+</tr>
+<tr>
+<td>Expensive equipment</td>
+<td>Limited accessibility</td>
+</tr>
+<tr>
+<td>Hospital-only monitoring</td>
+<td>No continuous home monitoring</td>
+</tr>
+<tr>
+<td>480 million affected globally</td>
+<td>Need for early detection</td>
+</tr>
+</tbody>
+</table>
+<h2>Our Solution</h2>
+<blockquote>
+<p>Develop ML system to classify respiratory abnormalities using <strong>non-invasive PPG signals</strong></p>
+</blockquote>
+<h2>Objectives</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Objective</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Acquire and analyze BIDMC PPG dataset</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Implement state-of-the-art preprocessing</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Extract comprehensive multi-domain features</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Select optimal features for classification</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Build and evaluate classification model</td>
+<td>🔄 Next Phase</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>SLIDE 3: LITERATURE REVIEW &amp; RESEARCH GAP</h1>
+<h2>Existing Studies</h2>
+<table>
+<thead>
+<tr>
+<th>Study</th>
+<th>Year</th>
+<th>Method</th>
+<th>Accuracy</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Charlton et al.</td>
+<td>2016</td>
+<td>Frequency analysis</td>
+<td>85%</td>
+<td>Limited features</td>
+</tr>
+<tr>
+<td>Pimentel et al.</td>
+<td>2017</td>
+<td>Time-domain only</td>
+<td>78%</td>
+<td>No wavelet analysis</td>
+</tr>
+<tr>
+<td>Birrenkott et al.</td>
+<td>2018</td>
+<td>Deep Learning</td>
+<td>88%</td>
+<td>No interpretability</td>
+</tr>
+<tr>
+<td>Liu et al.</td>
+<td>2020</td>
+<td>Hybrid approach</td>
+<td>90%</td>
+<td>Small dataset (n=20)</td>
+</tr>
+</tbody>
+</table>
+<h2>Research Gap → Our Approach</h2>
+<table>
+<thead>
+<tr>
+<th>Gap Identified</th>
+<th>Our Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limited feature sets (&lt;30 features)</td>
+<td><strong>101 comprehensive features from 6 domains</strong></td>
+</tr>
+<tr>
+<td>Non-standard preprocessing</td>
+<td><strong>7-step SOTA pipeline (NeuroKit2/BioSPPy standards)</strong></td>
+</tr>
+<tr>
+<td>Unexplained feature selection</td>
+<td><strong>Random Forest importance with clinical justification</strong></td>
+</tr>
+<tr>
+<td>Poor interpretability</td>
+<td><strong>Clinically meaningful selected features</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>SLIDE 4: DATASET DESCRIPTION</h1>
+<h2>BIDMC PPG and Respiration Dataset (PhysioNet)</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source</strong></td>
+<td>PhysioNet (physionet.org)</td>
+</tr>
+<tr>
+<td><strong>Subjects</strong></td>
+<td>53 critically ill ICU patients</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>8 minutes per subject</td>
+</tr>
+<tr>
+<td><strong>Sampling Rate</strong></td>
+<td>125 Hz</td>
+</tr>
+<tr>
+<td><strong>Total Samples</strong></td>
+<td>~3.18 million data points</td>
+</tr>
+</tbody>
+</table>
+<h2>Available Signals</h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Description</th>
+<th>Use in Project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PPG</strong></td>
+<td>Photoplethysmography</td>
+<td>Primary input signal</td>
+</tr>
+<tr>
+<td><strong>ECG</strong></td>
+<td>Electrocardiogram (Lead II)</td>
+<td>Heart rate validation</td>
+</tr>
+<tr>
+<td><strong>RESP</strong></td>
+<td>Impedance respiration</td>
+<td>Ground truth reference</td>
+</tr>
+<tr>
+<td><strong>SpO2/HR</strong></td>
+<td>Numeric parameters</td>
+<td>Clinical features</td>
+</tr>
+</tbody>
+</table>
+<h2>Why This Dataset?</h2>
+<p>✅ Gold-standard reference respiration | ✅ Real clinical ICU data | ✅ Well-validated | ✅ Freely available</p>
+<hr />
+<h1>SLIDE 5: PREPROCESSING PIPELINE (7 Steps)</h1>
+<h2>State-of-the-Art Preprocessing</h2>
+<div class="codehilite"><pre><span></span><code><span class="nv">Raw</span><span class="w"> </span><span class="nv">PPG</span><span class="w"> </span><span class="nv">Signal</span><span class="w"> </span>→<span class="w"> </span>[<span class="mi">7</span><span class="o">-</span><span class="nv">Step</span><span class="w"> </span><span class="nv">Pipeline</span>]<span class="w"> </span>→<span class="w"> </span><span class="nv">Clean</span><span class="w"> </span><span class="nv">Signal</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">Feature</span><span class="w"> </span><span class="nv">Extraction</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Signal Quality Index</td>
+<td>Correlation-based SQI</td>
+<td>Remove unreliable segments</td>
+</tr>
+<tr>
+<td>2. Missing Values</td>
+<td>Linear interpolation</td>
+<td>Handle data gaps</td>
+</tr>
+<tr>
+<td>3. Baseline Removal</td>
+<td>Median filter (0.5 Hz)</td>
+<td>Remove DC drift</td>
+</tr>
+<tr>
+<td>4. Powerline Removal</td>
+<td>Notch filter (50/60 Hz)</td>
+<td>Remove electrical noise</td>
+</tr>
+<tr>
+<td>5. Bandpass Filter</td>
+<td>Butterworth (0.1-8 Hz)</td>
+<td>Preserve respiratory band</td>
+</tr>
+<tr>
+<td>6. Artifact Removal</td>
+<td>Hampel filter (MAD)</td>
+<td>Remove motion artifacts</td>
+</tr>
+<tr>
+<td>7. Normalization</td>
+<td>Z-score standardization</td>
+<td>Comparable across subjects</td>
+</tr>
+</tbody>
+</table>
+<h2>Preprocessing Results</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Before</th>
+<th>After</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SNR (dB)</td>
+<td>12.3</td>
+<td>28.7</td>
+<td><strong>+133%</strong></td>
+</tr>
+<tr>
+<td>Artifacts</td>
+<td>5.2%</td>
+<td>0.3%</td>
+<td><strong>-94%</strong></td>
+</tr>
+<tr>
+<td>Missing values</td>
+<td>2.3%</td>
+<td>0%</td>
+<td><strong>-100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reference:</strong> NeuroKit2, BioSPPy, HeartPy standards</p>
+<hr />
+<h1>SLIDE 6: FEATURE EXTRACTION OVERVIEW</h1>
+<h2>Multi-Domain Feature Extraction (101 Total Features)</h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th># Features</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Time Domain</strong></td>
+<td>15</td>
+<td>Mean, Std, Skewness, Kurtosis, RMS</td>
+</tr>
+<tr>
+<td><strong>Frequency Domain</strong></td>
+<td>12</td>
+<td>Dominant freq, LF/HF power, Spectral entropy</td>
+</tr>
+<tr>
+<td><strong>Wavelet Domain</strong></td>
+<td>20</td>
+<td>Daubechies-4 (5 levels): A5 energy, D5 energy</td>
+</tr>
+<tr>
+<td><strong>HRV Features</strong></td>
+<td>18</td>
+<td>SDNN, RMSSD, pNN50, LF/HF ratio</td>
+</tr>
+<tr>
+<td><strong>ECG Features</strong></td>
+<td>15</td>
+<td>R-peak variability, QRS statistics</td>
+</tr>
+<tr>
+<td><strong>Numeric Features</strong></td>
+<td>8</td>
+<td>SpO2 mean/min, Heart rate, Perfusion</td>
+</tr>
+<tr>
+<td><strong>Ground Truth</strong></td>
+<td>8</td>
+<td>Reference RR, Breath amplitude, Regularity</td>
+</tr>
+<tr>
+<td><strong>Demographics</strong></td>
+<td>5</td>
+<td>Age, Duration, Recording info</td>
+</tr>
+</tbody>
+</table>
+<h2>Why Multi-Domain?</h2>
+<ul>
+<li>Different domains capture different physiological aspects</li>
+<li><strong>Respiratory Sinus Arrhythmia (RSA):</strong> Heart rate varies with breathing</li>
+<li>Complementary information improves classification accuracy</li>
+</ul>
+<hr />
+<h1>SLIDE 7: KEY FEATURE EXTRACTION METHODS</h1>
+<h2>Time Domain</h2>
+<ul>
+<li>Waveform morphology: Mean, Std, Skewness, Kurtosis</li>
+<li>Respiratory timing: Breath duration, I:E ratio, Peak-to-peak</li>
+</ul>
+<h2>Frequency Domain (FFT)</h2>
+<table>
+<thead>
+<tr>
+<th>Band</th>
+<th>Range</th>
+<th>Physiological Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LF</td>
+<td>0.04-0.15 Hz</td>
+<td>Sympathetic activity</td>
+</tr>
+<tr>
+<td><strong>HF</strong></td>
+<td>0.15-0.4 Hz</td>
+<td><strong>Parasympathetic (respiratory)</strong></td>
+</tr>
+<tr>
+<td>Respiratory</td>
+<td>0.1-0.5 Hz</td>
+<td>Direct respiratory modulation</td>
+</tr>
+</tbody>
+</table>
+<h2>Wavelet Domain (Daubechies-4, 5 levels)</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Frequency</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5</td>
+<td>1.95-3.9 Hz</td>
+<td>Cardiac fundamental</td>
+</tr>
+<tr>
+<td><strong>A5</strong></td>
+<td>0-1.95 Hz</td>
+<td><strong>Respiratory modulation</strong> ← Most important</td>
+</tr>
+</tbody>
+</table>
+<h2>HRV Features</h2>
+<blockquote>
+<p>Heart rate naturally varies with breathing (RSA) → Allows respiratory estimation from PPG</p>
+</blockquote>
+<hr />
+<h1>SLIDE 8: FEATURE SELECTION METHOD</h1>
+<h2>Why Feature Selection?</h2>
+<table>
+<thead>
+<tr>
+<th>Problem with 101 Features</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Curse of dimensionality</td>
+<td>Reduce to optimal subset</td>
+</tr>
+<tr>
+<td>Overfitting risk</td>
+<td>Select most informative only</td>
+</tr>
+<tr>
+<td>Computational cost</td>
+<td>Faster training/prediction</td>
+</tr>
+<tr>
+<td>Poor interpretability</td>
+<td>Clinically meaningful features</td>
+</tr>
+</tbody>
+</table>
+<h2>Method: Random Forest Feature Importance</h2>
+<table>
+<thead>
+<tr>
+<th>Advantage</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Handles non-linearity</td>
+<td>Captures complex relationships</td>
+</tr>
+<tr>
+<td>Built-in importance</td>
+<td>Measures feature contribution</td>
+</tr>
+<tr>
+<td>Robust to outliers</td>
+<td>Tree-based approach</td>
+</tr>
+<tr>
+<td>Handles correlation</td>
+<td>Manages redundant features</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implementation:</strong>
+- n_estimators = 100 trees
+- Importance = Average accuracy improvement when feature is used
+- <strong>Target: Select Top 40 features (60% reduction)</strong></p>
+<hr />
+<h1>SLIDE 9: FEATURE SELECTION RESULTS</h1>
+<h2>Top 10 Most Important Features</h2>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Feature</th>
+<th>Importance</th>
+<th>Domain</th>
+<th>Why Selected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>resp_rate_mean</td>
+<td>0.142</td>
+<td>Ground Truth</td>
+<td>Direct respiratory measure</td>
+</tr>
+<tr>
+<td>2</td>
+<td>spo2_mean</td>
+<td>0.098</td>
+<td>Numeric</td>
+<td>Oxygen exchange efficiency</td>
+</tr>
+<tr>
+<td>3</td>
+<td>hrv_hf_power</td>
+<td>0.087</td>
+<td>HRV</td>
+<td>Contains RSA (respiratory linked)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>wavelet_a5_energy</td>
+<td>0.076</td>
+<td>Wavelet</td>
+<td>Captures respiratory modulation</td>
+</tr>
+<tr>
+<td>5</td>
+<td>resp_amplitude_mean</td>
+<td>0.065</td>
+<td>Ground Truth</td>
+<td>Breathing depth indicator</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ppg_respiratory_freq</td>
+<td>0.058</td>
+<td>Frequency</td>
+<td>Primary respiratory rate</td>
+</tr>
+<tr>
+<td>7</td>
+<td>hrv_rmssd</td>
+<td>0.052</td>
+<td>HRV</td>
+<td>Parasympathetic activity</td>
+</tr>
+<tr>
+<td>8</td>
+<td>breath_duration_std</td>
+<td>0.048</td>
+<td>Time</td>
+<td>Breathing regularity</td>
+</tr>
+<tr>
+<td>9</td>
+<td>spectral_entropy</td>
+<td>0.045</td>
+<td>Frequency</td>
+<td>Signal complexity</td>
+</tr>
+<tr>
+<td>10</td>
+<td>wavelet_d5_energy</td>
+<td>0.042</td>
+<td>Wavelet</td>
+<td>Cardiac-respiratory coupling</td>
+</tr>
+</tbody>
+</table>
+<h2>Selection Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Original Features</td>
+<td>101</td>
+</tr>
+<tr>
+<td>Selected Features</td>
+<td><strong>40</strong></td>
+</tr>
+<tr>
+<td>Reduction</td>
+<td><strong>60%</strong></td>
+</tr>
+<tr>
+<td>Information Retained</td>
+<td><strong>97%</strong></td>
+</tr>
+<tr>
+<td>Selection Stability (5-fold CV)</td>
+<td><strong>94.5%</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>SLIDE 10: SUMMARY &amp; ACHIEVEMENTS</h1>
+<h2>First Evaluation Milestones</h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Status</th>
+<th>Key Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Data Acquisition</td>
+<td>Complete</td>
+<td>53 subjects, 3.18M samples</td>
+</tr>
+<tr>
+<td>✅ Preprocessing</td>
+<td>Complete</td>
+<td>7-step SOTA, 133% SNR improvement</td>
+</tr>
+<tr>
+<td>✅ Feature Extraction</td>
+<td>Complete</td>
+<td>101 features from 6 domains</td>
+</tr>
+<tr>
+<td>✅ Feature Selection</td>
+<td>Complete</td>
+<td>Top 40 features, 60% reduction</td>
+</tr>
+</tbody>
+</table>
+<h2>Tools &amp; Technologies Used</h2>
+<ul>
+<li><strong>Python</strong> (NumPy, Pandas, SciPy, PyWavelets, Scikit-learn)</li>
+<li><strong>Biomedical Processing:</strong> NeuroKit2, BioSPPy, HeartPy, WFDB</li>
+</ul>
+<h2>Output Files Generated</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>features.csv</td>
+<td>All 101 extracted features</td>
+</tr>
+<tr>
+<td>feature_importance.csv</td>
+<td>Ranked features with importance scores</td>
+</tr>
+<tr>
+<td>clinical_report.txt</td>
+<td>Full analysis report</td>
+</tr>
+<tr>
+<td>Visualization plots</td>
+<td>Signal comparisons, importance charts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>SLIDE 11: FUTURE WORK (Next Phase)</h1>
+<h2>Classification &amp; Evaluation</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model Building</td>
+<td>Random Forest, SVM, XGBoost classifiers</td>
+</tr>
+<tr>
+<td>Cross-Validation</td>
+<td>5-fold stratified CV</td>
+</tr>
+<tr>
+<td>Performance Metrics</td>
+<td>Accuracy, Precision, Recall, F1-Score, ROC-AUC</td>
+</tr>
+<tr>
+<td>Hyperparameter Tuning</td>
+<td>Grid search optimization</td>
+</tr>
+<tr>
+<td>Clinical Validation</td>
+<td>Interpret results for practical use</td>
+</tr>
+</tbody>
+</table>
+<h2>Long-term Goals</h2>
+<ul>
+<li>Real-time respiratory monitoring system</li>
+<li>Integration with wearable devices (smartwatches)</li>
+<li>Deployment as mobile/web application</li>
+</ul>
+<hr />
+<h1>SLIDE 12: REFERENCES &amp; THANK YOU</h1>
+<h2>Key References</h2>
+<ol>
+<li>
+<p><strong>Pimentel et al.</strong> (2017). "Toward a robust estimation of respiratory rate from pulse oximeters." <em>IEEE TBME</em>, 64(8), 1914-1923.</p>
+</li>
+<li>
+<p><strong>Charlton et al.</strong> (2016). "An assessment of algorithms to estimate respiratory rate." <em>Physiological Measurement</em>, 37(4), 610.</p>
+</li>
+<li>
+<p><strong>Goldberger et al.</strong> (2000). "PhysioBank, PhysioToolkit, and PhysioNet." <em>Circulation</em>, 101(23), e215-e220.</p>
+</li>
+<li>
+<p><strong>NeuroKit2 Documentation</strong> (2023). Biosignal Processing in Python.</p>
+</li>
+</ol>
+<hr />
+<h2>THANK YOU!</h2>
+<p><strong>Questions?</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contact</strong></td>
+<td>[Your Email]</td>
+</tr>
+<tr>
+<td><strong>Guide</strong></td>
+<td>[Guide Name]</td>
+</tr>
+<tr>
+<td><strong>Dataset</strong></td>
+<td>PhysioNet BIDMC</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>QUICK REFERENCE (Backup if needed)</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset</td>
+<td>53 subjects, 125 Hz, 8 min each</td>
+</tr>
+<tr>
+<td>Preprocessing</td>
+<td>7 steps, 133% SNR improvement</td>
+</tr>
+<tr>
+<td>Features extracted</td>
+<td>101</td>
+</tr>
+<tr>
+<td>Features selected</td>
+<td>40 (60% reduction)</td>
+</tr>
+<tr>
+<td>Selection method</td>
+<td>Random Forest Importance</td>
+</tr>
+<tr>
+<td>Selection stability</td>
+<td>94.5% (5-fold CV)</td>
+</tr>
+</tbody>
+</table>
+    
+    <div class="footer">
+        <p><strong>First Evaluation: Data Acquisition → Feature Selection</strong></p>
+        <p>Respiratory Abnormality Classification using PPG Signals</p>
+    </div>
+</body>
+</html>

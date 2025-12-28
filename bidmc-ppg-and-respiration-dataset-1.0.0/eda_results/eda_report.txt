@@ -1,0 +1,134 @@
+======================================================================
+EXPLORATORY DATA ANALYSIS (EDA) REPORT
+BIDMC PPG and Respiration Dataset
+======================================================================
+
+Generated: 2025-12-07 02:18:29
+Data Directory: D:\Downloads\bidmc-ppg-and-respiration-dataset-1.0.0-20251011T094008Z-1-001\bidmc-ppg-and-respiration-dataset-1.0.0
+
+======================================================================
+1. DATASET OVERVIEW
+======================================================================
+
+Dataset: BIDMC PPG and Respiration Dataset
+Source: PhysioNet (https://physionet.org/content/bidmc/1.0.0/)
+Number of subjects: 53
+Sampling rate: 125 Hz (waveforms)
+Numeric sampling rate: 1 Hz
+
+--------------------------------------------------
+Signal Types:
+--------------------------------------------------
+  • RESP,: pm
+  • PLETH,: NU
+  • V,: mV
+  • AVR,: mV
+  • II,: mV
+
+======================================================================
+2. SIGNAL CHARACTERISTICS
+======================================================================
+
+RESP Signal:
+  Mean amplitude: 0.3050 ± 0.1980
+  Std deviation: 0.2608 ± 0.1154
+  Dynamic range: 0.9960 ± 0.4366
+
+PLETH Signal:
+  Mean amplitude: 0.4551 ± 0.0244
+  Std deviation: 0.1378 ± 0.0320
+  Dynamic range: 0.7331 ± 0.2112
+
+II Signal:
+  Mean amplitude: 0.3793 ± 0.1794
+  Std deviation: 0.1056 ± 0.0521
+  Dynamic range: 1.1041 ± 0.5525
+
+======================================================================
+3. VITAL SIGNS SUMMARY
+======================================================================
+
+Heart Rate (HR):
+  Mean: 89.2 ± 13.2
+  Range: [61.3, 124.3]
+
+Oxygen Saturation (SpO2):
+  Mean: 96.7 ± 3.3
+  Range: [84.7, 100.0]
+
+Pulse Rate (PULSE):
+  Mean: 88.4 ± 13.6
+  Range: [62.5, 124.7]
+
+Respiratory Rate (RESP):
+  Mean: 17.4 ± 3.2
+  Range: [3.7, 24.7]
+
+======================================================================
+4. DEMOGRAPHICS
+======================================================================
+
+Age: 63.2 ± 17.1 years (range: 19-88)
+
+Sex Distribution:
+  F: 32 (60.4%)
+  M: 20 (37.7%)
+  ?: 1 (1.9%)
+
+======================================================================
+5. DATA QUALITY
+======================================================================
+
+• All 53 subjects have complete waveform recordings
+• Breath annotations available for all subjects (ground truth)
+• Numeric vital signs (HR, SpO2, RESP, PULSE) available
+• Demographics extracted from header files
+
+======================================================================
+6. KEY OBSERVATIONS
+======================================================================
+
+• Dataset contains ICU patients with continuous monitoring
+• Respiratory rates vary significantly across subjects
+• Manual breath annotations provide reliable ground truth
+• Multiple physiological signals enable multimodal analysis
+• Data quality is generally high with minimal missing values
+
+======================================================================
+7. GENERATED FILES
+======================================================================
+
+Visualization files:
+  • eda_01_signal_overview.png - Multi-signal waveform overview
+  • eda_02_resp_comparison.png - Respiratory signal comparison
+  • eda_03_ppg_analysis.png - PPG signal with peak detection
+  • eda_04_breath_annotations.png - Ground truth annotations
+  • eda_05_signal_distributions.png - Signal statistics
+  • eda_06_frequency_analysis.png - Spectral analysis
+  • eda_07_vital_signs.png - Vital signs distributions
+  • eda_08_demographics.png - Patient demographics
+  • eda_09_correlation_matrix.png - Variable correlations
+  • eda_10_data_quality.png - Data quality metrics
+
+Data files:
+  • eda_signal_statistics.csv
+  • eda_numerics_statistics.csv
+  • eda_demographics.csv
+  • eda_correlation_matrix.csv
+  • eda_data_quality.csv
+
+======================================================================
+8. RECOMMENDATIONS FOR FEATURE EXTRACTION
+======================================================================
+
+Based on EDA findings:
+  1. Use respiratory signal for time-domain and frequency-domain features
+  2. Extract HRV features from PPG signal
+  3. Include ECG-derived features for cardiac function
+  4. Incorporate vital signs (HR, SpO2) as additional features
+  5. Use breath annotations for ground truth respiratory rate
+  6. Consider demographics (age, sex) as covariates
+
+======================================================================
+END OF EDA REPORT
+======================================================================

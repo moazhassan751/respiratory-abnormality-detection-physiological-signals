@@ -1,0 +1,59 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore large raw data, waveform, and CSV files (edit as needed)
+*.dat
+*.hea
+*.n
+*.breath
+*.csv
+
+# Ignore test data and synthetic data folders (edit as needed)
+test_data/
+
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.~
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Ignore git folder
+.git/
+.gitignore.swp
+
+# Ignore presentation and PDF outputs (edit as needed)
+*.pptx
+*.pdf
+
+# Ignore hash/checksum files
+SHA256SUMS.txt
+
+# Ignore compiled C/C++/Fortran files
+*.so
+*.dll
+*.o
+*.a
+*.out
+
+# Ignore VSCode and IDE settings
+.vscode/
+.idea/
+.spyderproject
+.spyproject
+
+# Allow everything else (code, docs, results, configs, etc.)

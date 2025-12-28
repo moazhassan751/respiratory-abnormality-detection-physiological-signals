@@ -1,0 +1,578 @@
+======================================================================
+RESPIRATORY ABNORMALITY CLASSIFICATION - CLINICAL REPORT
+======================================================================
+
+Generated: 2025-12-19 23:37:33
+
+======================================================================
+PREPROCESSING PIPELINE
+======================================================================
+Type: State-of-the-Art (NeuroKit2/BioSPPy/HeartPy Standards)
+
+Steps Applied:
+  1. Signal Quality Assessment (SQI)
+  2. Missing Value Handling (Interpolation)
+  3. Baseline Wander Removal (Butterworth Highpass)
+  4. Powerline Interference Removal (50/60 Hz Notch)
+  5. Bandpass Filtering:
+     - ECG: 0.5-40 Hz (4th order Butterworth)
+     - PPG: 0.5-8 Hz (3rd order Butterworth)
+     - RESP: 0.05-1 Hz (3rd order Butterworth)
+  6. Artifact Detection & Removal (Z-score + Derivative)
+  7. Normalization (Z-score standardization)
+
+References:
+  - NeuroKit2: Makowski et al. (2021)
+  - BioSPPy: Carreiras et al. (2015)
+  - HeartPy: van Gent et al. (2019)
+
+DATASET SUMMARY
+--------------------------------------------------
+Total subjects: 53
+  Abnormal: 26 (49.1%)
+  Normal: 27 (50.9%)
+
+======================================================================
+CLASSIFICATION RESULTS
+======================================================================
+
+Best Model: Gradient Boosting
+
+
+--------------------------------------------------
+LOGISTIC REGRESSION
+--------------------------------------------------
+  Test Accuracy:      84.91%
+  Balanced Accuracy:  84.90%
+  Precision:          85.19%
+  Recall:             85.19%
+  F1-Score:           85.19%
+  Cross-Val Mean:     85.00% (±25.22%)
+  LOSO Accuracy:      83.02%
+  ROC AUC:            0.950
+  95% CI:             [35.57%, 134.43%]
+
+  Diagnostic Metrics:
+    Sensitivity:      85.19%
+    Specificity:      84.62%
+
+  Error Analysis:
+    Type I Error (α):   15.38%
+    Type II Error (β):  14.81%
+    Statistical Power:  85.19%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    22        4
+    Actual Abnormal   4       23
+
+--------------------------------------------------
+RANDOM FOREST
+--------------------------------------------------
+  Test Accuracy:      92.45%
+  Balanced Accuracy:  92.45%
+  Precision:          92.59%
+  Recall:             92.59%
+  F1-Score:           92.59%
+  Cross-Val Mean:     91.67% (±12.91%)
+  LOSO Accuracy:      94.34%
+  ROC AUC:            0.983
+  95% CI:             [66.36%, 116.97%]
+
+  Diagnostic Metrics:
+    Sensitivity:      92.59%
+    Specificity:      92.31%
+
+  Error Analysis:
+    Type I Error (α):   7.69%
+    Type II Error (β):  7.41%
+    Statistical Power:  92.59%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    24        2
+    Actual Abnormal   2       25
+
+--------------------------------------------------
+GRADIENT BOOSTING
+--------------------------------------------------
+  Test Accuracy:      94.34%
+  Balanced Accuracy:  94.37%
+  Precision:          96.15%
+  Recall:             92.59%
+  F1-Score:           94.34%
+  Cross-Val Mean:     94.17% (±9.17%)
+  LOSO Accuracy:      88.68%
+  ROC AUC:            0.962
+  95% CI:             [76.20%, 112.13%]
+
+  Diagnostic Metrics:
+    Sensitivity:      92.59%
+    Specificity:      96.15%
+
+  Error Analysis:
+    Type I Error (α):   3.85%
+    Type II Error (β):  7.41%
+    Statistical Power:  92.59%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    25        1
+    Actual Abnormal   2       25
+
+--------------------------------------------------
+SVM (RBF)
+--------------------------------------------------
+  Test Accuracy:      83.02%
+  Balanced Accuracy:  83.05%
+  Precision:          84.62%
+  Recall:             81.48%
+  F1-Score:           83.02%
+  Cross-Val Mean:     83.33% (±19.36%)
+  LOSO Accuracy:      81.13%
+  ROC AUC:            0.889
+  95% CI:             [45.38%, 121.29%]
+
+  Diagnostic Metrics:
+    Sensitivity:      81.48%
+    Specificity:      84.62%
+
+  Error Analysis:
+    Type I Error (α):   15.38%
+    Type II Error (β):  18.52%
+    Statistical Power:  81.48%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    22        4
+    Actual Abnormal   5       22
+
+--------------------------------------------------
+SVM (LINEAR)
+--------------------------------------------------
+  Test Accuracy:      86.79%
+  Balanced Accuracy:  86.75%
+  Precision:          85.71%
+  Recall:             88.89%
+  F1-Score:           87.27%
+  Cross-Val Mean:     87.50% (±18.73%)
+  LOSO Accuracy:      79.25%
+  ROC AUC:            0.930
+  95% CI:             [50.80%, 124.20%]
+
+  Diagnostic Metrics:
+    Sensitivity:      88.89%
+    Specificity:      84.62%
+
+  Error Analysis:
+    Type I Error (α):   15.38%
+    Type II Error (β):  11.11%
+    Statistical Power:  88.89%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    22        4
+    Actual Abnormal   3       24
+
+--------------------------------------------------
+K-NEAREST NEIGHBORS
+--------------------------------------------------
+  Test Accuracy:      81.13%
+  Balanced Accuracy:  81.27%
+  Precision:          86.96%
+  Recall:             74.07%
+  F1-Score:           80.00%
+  Cross-Val Mean:     81.67% (±18.93%)
+  LOSO Accuracy:      81.13%
+  ROC AUC:            0.919
+  95% CI:             [44.56%, 118.77%]
+
+  Diagnostic Metrics:
+    Sensitivity:      74.07%
+    Specificity:      88.46%
+
+  Error Analysis:
+    Type I Error (α):   11.54%
+    Type II Error (β):  25.93%
+    Statistical Power:  74.07%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    23        3
+    Actual Abnormal   7       20
+
+--------------------------------------------------
+DECISION TREE
+--------------------------------------------------
+  Test Accuracy:      90.57%
+  Balanced Accuracy:  90.53%
+  Precision:          89.29%
+  Recall:             92.59%
+  F1-Score:           90.91%
+  Cross-Val Mean:     90.00% (±13.84%)
+  LOSO Accuracy:      88.68%
+  ROC AUC:            0.905
+  95% CI:             [62.87%, 117.13%]
+
+  Diagnostic Metrics:
+    Sensitivity:      92.59%
+    Specificity:      88.46%
+
+  Error Analysis:
+    Type I Error (α):   11.54%
+    Type II Error (β):  7.41%
+    Statistical Power:  92.59%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    23        3
+    Actual Abnormal   2       25
+
+--------------------------------------------------
+NAIVE BAYES
+--------------------------------------------------
+  Test Accuracy:      77.36%
+  Balanced Accuracy:  77.49%
+  Precision:          82.61%
+  Recall:             70.37%
+  F1-Score:           76.00%
+  Cross-Val Mean:     77.50% (±24.73%)
+  LOSO Accuracy:      77.36%
+  ROC AUC:            0.903
+  95% CI:             [29.02%, 125.98%]
+
+  Diagnostic Metrics:
+    Sensitivity:      70.37%
+    Specificity:      84.62%
+
+  Error Analysis:
+    Type I Error (α):   15.38%
+    Type II Error (β):  29.63%
+    Statistical Power:  70.37%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    22        4
+    Actual Abnormal   8       19
+
+--------------------------------------------------
+ADABOOST
+--------------------------------------------------
+  Test Accuracy:      88.68%
+  Balanced Accuracy:  88.75%
+  Precision:          92.00%
+  Recall:             85.19%
+  F1-Score:           88.46%
+  Cross-Val Mean:     88.33% (±13.54%)
+  LOSO Accuracy:      88.68%
+  ROC AUC:            0.973
+  95% CI:             [61.79%, 114.87%]
+
+  Diagnostic Metrics:
+    Sensitivity:      85.19%
+    Specificity:      92.31%
+
+  Error Analysis:
+    Type I Error (α):   7.69%
+    Type II Error (β):  14.81%
+    Statistical Power:  85.19%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    24        2
+    Actual Abnormal   4       23
+
+--------------------------------------------------
+EXTRA TREES
+--------------------------------------------------
+  Test Accuracy:      90.57%
+  Balanced Accuracy:  90.60%
+  Precision:          92.31%
+  Recall:             88.89%
+  F1-Score:           90.57%
+  Cross-Val Mean:     90.83% (±15.12%)
+  LOSO Accuracy:      90.57%
+  ROC AUC:            0.970
+  95% CI:             [61.21%, 120.46%]
+
+  Diagnostic Metrics:
+    Sensitivity:      88.89%
+    Specificity:      92.31%
+
+  Error Analysis:
+    Type I Error (α):   7.69%
+    Type II Error (β):  11.11%
+    Statistical Power:  88.89%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    24        2
+    Actual Abnormal   3       24
+
+--------------------------------------------------
+LDA
+--------------------------------------------------
+  Test Accuracy:      84.91%
+  Balanced Accuracy:  85.11%
+  Precision:          95.24%
+  Recall:             74.07%
+  F1-Score:           83.33%
+  Cross-Val Mean:     85.00% (±15.72%)
+  LOSO Accuracy:      75.47%
+  ROC AUC:            0.923
+  95% CI:             [54.18%, 115.82%]
+
+  Diagnostic Metrics:
+    Sensitivity:      74.07%
+    Specificity:      96.15%
+
+  Error Analysis:
+    Type I Error (α):   3.85%
+    Type II Error (β):  25.93%
+    Statistical Power:  74.07%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    25        1
+    Actual Abnormal   7       20
+
+--------------------------------------------------
+VOTING ENSEMBLE
+--------------------------------------------------
+  Test Accuracy:      92.45%
+  Balanced Accuracy:  92.45%
+  Precision:          92.59%
+  Recall:             92.59%
+  F1-Score:           92.59%
+  Cross-Val Mean:     92.50% (±12.05%)
+  LOSO Accuracy:      88.68%
+  ROC AUC:            0.974
+  95% CI:             [68.89%, 116.11%]
+
+  Diagnostic Metrics:
+    Sensitivity:      92.59%
+    Specificity:      92.31%
+
+  Error Analysis:
+    Type I Error (α):   7.69%
+    Type II Error (β):  7.41%
+    Statistical Power:  92.59%
+
+  Confusion Matrix:
+                  Predicted
+                  Normal  Abnormal
+    Actual Normal    24        2
+    Actual Abnormal   2       25
+
+======================================================================
+FEATURE SELECTION METHODOLOGY
+======================================================================
+
+Method: IMPROVED PIPELINE (Bias-Free)
+--------------------------------------------------
+1. Train/Test Split BEFORE Feature Selection (prevents data leakage)
+2. Correlation Analysis: Removed features with |r| > 0.90
+3. Filter Method: F-statistic (ANOVA) - Classifier-independent
+4. Selection Criteria: Top N features where N = min(n_train/5, significant)
+5. Statistical Significance: Only features with p < 0.05 considered
+
+Original features: 94
+Selected features: 7
+Selection method: F-statistic (ANOVA)
+Correlation threshold: 0.9
+PCA comparison: 22 components (95% variance)
+
+======================================================================
+FEATURE IMPORTANCE RANKING (F-statistic Scores)
+======================================================================
+
+Total features extracted: 60
+Features used for classification: 7
+(Higher F-score = More discriminative between classes)
+
+Rank | Feature Name                          | F-score
+------------------------------------------------------------
+  1  | resp_zero_crossings                      | 34.9624 ✓
+  2  | num_monitor_rr_min                       | 29.2098 ✓
+  3  | resp_low_freq_power                      | 23.8608 ✓
+  4  | resp_wavelet_L1_entropy                  | 10.1082 ✓
+  5  | resp_wavelet_L2_entropy                  | 9.5072 ✓
+  6  | gt_breath_regularity                     | 9.5030 ✓
+  7  | resp_wavelet_L4_entropy                  | 5.8531 ✓
+  8  | num_monitor_rr_std                       | 4.0763  
+  9  | ecg_ii_ecg_rpeak_amp_mean                | 3.9336  
+ 10  | resp_wavelet_L1_energy                   | 3.3797  
+ 11  | resp_total_power                         | 3.3715  
+ 12  | ppg_p5                                   | 3.1310  
+ 13  | resp_p5                                  | 2.8637  
+ 14  | ppg_skewness                             | 2.8250  
+ 15  | resp_wavelet_L2_energy                   | 2.5233  
+ 16  | resp_skewness                            | 1.9983  
+ 17  | resp_wavelet_L0_entropy                  | 1.9189  
+ 18  | num_pulse_rate_trend                     | 1.8597  
+ 19  | num_monitor_rr_max                       | 1.7457  
+ 20  | resp_range                               | 1.3965  
+ 21  | ecg_ii_ecg_rr_std                        | 1.3474  
+ 22  | num_pulse_rate_std                       | 1.3140  
+ 23  | num_heart_rate_range                     | 1.1026  
+ 24  | ecg_ii_ecg_total_power                   | 0.9234  
+ 25  | resp_spectral_entropy                    | 0.8984  
+ 26  | resp_iqr                                 | 0.8893  
+ 27  | ecg_ii_ecg_mean                          | 0.8423  
+ 28  | hrv_sdnn                                 | 0.7467  
+ 29  | num_spo2_trend                           | 0.6937  
+ 30  | ecg_ii_ecg_std                           | 0.6667  
+ 31  | num_heart_rate_mean                      | 0.6325  
+ 32  | ecg_ii_ecg_hr_std                        | 0.6264  
+ 33  | num_heart_rate_trend                     | 0.5875  
+ 34  | ppg_mean                                 | 0.5843  
+ 35  | num_spo2_range                           | 0.5743  
+ 36  | resp_spectral_centroid                   | 0.5632  
+ 37  | ppg_range                                | 0.5293  
+ 38  | ecg_ii_ecg_rpeak_amp_std                 | 0.4878  
+ 39  | num_monitor_rr_range                     | 0.4529  
+ 40  | num_spo2_std                             | 0.3744  
+ 41  | hrv_pnn50                                | 0.3663  
+ 42  | num_monitor_rr_trend                     | 0.3459  
+ 43  | resp_var                                 | 0.3220  
+ 44  | ecg_ii_ecg_rr_range                      | 0.2690  
+ 45  | resp_std                                 | 0.2312  
+ 46  | ecg_ii_ecg_hr_mean                       | 0.1855  
+ 47  | ecg_ii_ecg_range                         | 0.1560  
+ 48  | ecg_ii_ecg_qrs_energy                    | 0.1517  
+ 49  | num_spo2_mean                            | 0.1515  
+ 50  | demo_age                                 | 0.0360  
+ 51  | ppg_std                                  | 0.0352  
+ 52  | num_heart_rate_std                       | 0.0312  
+ 53  | ppg_iqr                                  | 0.0309  
+ 54  | resp_wavelet_L0_energy                   | 0.0251  
+ 55  | hrv_mean_rr                              | 0.0167  
+ 56  | ppg_var                                  | 0.0076  
+ 57  | num_pulse_rate_range                     | 0.0070  
+ 58  | ppg_zero_crossings                       | 0.0007  
+ 59  | resp_mean                                | 0.0001  
+ 60  | demo_sex                                 | 0.0000  
+
+======================================================================
+LEAVE-ONE-SUBJECT-OUT (LOSO) CROSS-VALIDATION
+======================================================================
+
+LOSO is the gold standard for biomedical classification because:
+  - Subject-independent evaluation (no data leakage between subjects)
+  - Tests generalization to completely unseen subjects
+  - More realistic for clinical deployment scenarios
+
+LOSO Results Summary:
+------------------------------------------------------------
+Model                     LOSO Accuracy   Balanced Acc   
+------------------------------------------------------------
+Logistic Regression            83.02%          82.98%
+Random Forest                  94.34%          94.30%
+Gradient Boosting              88.68%          88.68%
+SVM (RBF)                      81.13%          81.20%
+SVM (Linear)                   79.25%          79.27%
+K-Nearest Neighbors            81.13%          81.20%
+Decision Tree                  88.68%          88.60%
+Naive Bayes                    77.36%          77.49%
+AdaBoost                       88.68%          88.75%
+Extra Trees                    90.57%          90.60%
+LDA                            75.47%          75.71%
+Voting Ensemble                88.68%          88.60%
+
+======================================================================
+EXPLAINABLE AI (XAI) ANALYSIS
+======================================================================
+
+--- Global Interpretation ---
+(Overall feature importance across all subjects)
+
+★ MAXIMUM CONTRIBUTING FEATURE: resp_zero_crossings
+
+Top 10 Features by Permutation Importance:
+  resp_zero_crossings                      0.3369 ± 0.0575
+  resp_low_freq_power                      0.0322 ± 0.0226
+  num_monitor_rr_min                       0.0000 ± 0.0000
+  resp_wavelet_L1_entropy                  0.0000 ± 0.0000
+  resp_wavelet_L2_entropy                  0.0000 ± 0.0000
+  gt_breath_regularity                     0.0000 ± 0.0000
+  resp_wavelet_L4_entropy                  0.0000 ± 0.0000
+
+--- Local Interpretation ---
+(Individual case explanations)
+See SHAP summary plot (shap_summary.png) for detailed visualization
+
+--- Feature-Target Correlation ---
+  resp_zero_crossings                      r = -0.6720
+  resp_low_freq_power                      r = +0.5863
+  num_monitor_rr_min                       r = -0.4858
+  gt_breath_regularity                     r = +0.4263
+  resp_wavelet_L1_entropy                  r = -0.4128
+  resp_wavelet_L2_entropy                  r = -0.3940
+  resp_wavelet_L4_entropy                  r = -0.2615
+
+======================================================================
+INTERPRETATION GUIDE
+======================================================================
+
+Type I Error (α - False Positive Rate):
+  - Probability of classifying a NORMAL patient as ABNORMAL
+  - Clinical impact: Unnecessary follow-up, patient anxiety
+  - Target: < 10% for screening applications
+
+Type II Error (β - False Negative Rate):
+  - Probability of classifying an ABNORMAL patient as NORMAL
+  - Clinical impact: Missed diagnosis, delayed treatment
+  - Target: < 20% for diagnostic applications
+
+Statistical Power (1-β):
+  - Probability of correctly detecting abnormality when present
+  - Higher is better; target: > 80%
+
+Sensitivity (True Positive Rate):
+  - Ability to correctly identify abnormal cases
+  - Critical for diagnostic applications
+
+Specificity (True Negative Rate):
+  - Ability to correctly identify normal cases
+  - Important for screening applications
+
+======================================================================
+DATA SOURCES USED
+======================================================================
+
+Files processed per subject:
+  1. bidmc##.hea/.dat  - Waveform signals (RESP, PLETH, ECG) at 125 Hz
+  2. bidmc##n.hea/.dat - Numerics (HR, SpO2, PULSE, RR) at 1 Hz
+  3. bidmc##.breath    - Manual breath annotations (ground truth)
+
+Features extracted from:
+  - Respiratory signal: Time-domain, Frequency-domain, Wavelet
+  - PPG/Plethysmogram: Time-domain, HRV metrics
+  - ECG Lead II: R-peak detection, HRV, QRS energy
+  - Monitor numerics: HR, SpO2, Pulse rate, Monitor RR
+  - Breath annotations: Ground truth RR, breathing regularity
+  - Demographics: Age, Sex, Location
+
+======================================================================
+VISUALIZATIONS GENERATED
+======================================================================
+  1. sample_signals.png      - Raw respiratory and PPG waveforms
+  2. confusion_matrices.png  - Classification results by model
+  3. roc_curves.png          - ROC curves with AUC values
+  4. feature_importance.png  - Top predictive features
+  5. model_comparison.png    - Performance and error analysis
+
+======================================================================
+END OF REPORT
+======================================================================
